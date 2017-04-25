@@ -169,10 +169,6 @@ function loadHandler(event) {
             _.merge(entry, getEntrySexInfo(entry));
             _.merge(entry, getEntryAgeInfo(entry));
             _.merge(entry, getNameInfo(entry));
-            // _.omit(entry, KEYS.SEX_UPON_OUTCOME);
-            // _.omit(entry, KEYS.NAME);
-            // _.omit(entry, KEYS.AGE_UPON_OUTCOME);
-            // entry[KEYS.DATE_TIME] = new Date(entry[KEYS.DATE_TIME]);
             return entry;
         })
         .value();
@@ -180,8 +176,6 @@ function loadHandler(event) {
     let newCsv = turnIntoCsv(generatedData);
     $('#putHere').textContent = newCsv;
     console.log(newCsv);
-    // console.log(JSON.stringify(generatedData));
-// console.log(csv);
 }
 
 function getCsvInfo(csvString) {
@@ -205,7 +199,6 @@ function getFormatedData(csvInfo) {
         .omit(function (entry) {
             return !entry[KEYS.ANIMAL_ID];
         })
-        .keyBy(csvInfo.keys[0])
         .value();
 }
 
